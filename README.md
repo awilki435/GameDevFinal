@@ -1,13 +1,8 @@
 # GameDevFinal
-## new elements
-- Menu navigation
-- Physics interaticon
-- persistant data
-- Page music
 
-## planning
- Method: Enitiy-component-system.
- Group Project
+## Planning
+ - Method: Enitiy-component-system.
+ - Group Project (git work flow)
 
 ## Gradeing Criteia
 1. [10 pts] Technical - Node.js server-based solution

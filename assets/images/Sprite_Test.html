@@ -30,7 +30,7 @@
   <script>
     // Set up the sprite sheet and animation variables
     let spriteSheet = new Image();
-    spriteSheet.src = 'word-baba.png';
+    spriteSheet.src = 'floor.png';
     //  
     // Current image is sreached to double current size
     // Imagie is centerd in given space
@@ -50,7 +50,7 @@
     // Get the canvas context and draw on it
     let ctx = canvas.getContext('2d');
 
-    // Update the sprite frame every 10 animation frames
+    // Update the sprite frame every 15 animation frames
     setInterval(() => {
       if (frameCount % 15 === 0) {
         currentFrame = (currentFrame + 1) % 3;

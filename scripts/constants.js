@@ -10,6 +10,37 @@ const WIN =     0x10000;
 
 const collision = 0x0001; //IS NEEDED?
 
+// TYPES //
+
+// const BABA =    1x00000;
+// big blue
+// flag
+// floor
+// hedge
+// lava
+// rock
+// wall
+// water
+// word
+
+
+// WORDS //
+
+// word - obj - baba
+// word - obj - flag
+// word - obj - lava
+// word - obj - rock
+// word - obj - wall
+// word - obj - water
+// word - verb - is 
+// word - noun - kill
+// word - noun - push
+// word - noun - sink
+// word - noun - stop
+// word - noun - win
+// word - noun - you
+
+
 // EXAMPLE OF USE
 
 // const TASK_1 = 0x001

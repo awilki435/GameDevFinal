@@ -3,8 +3,6 @@ MyGame.components.AnimatedSprites = function(spec) {
 
     let api = {
         get name() { return 'animatedSprites'; },
-        get fill() { return spec.fill; },
-        get stroke() { return spec.stroke; },
         get spriteWidth() {return spec.spriteWidth},
         get spriteHeight() {return spec.spriteHeight},
         get spriteX() {return spec.spriteX},

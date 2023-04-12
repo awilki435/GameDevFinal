@@ -1,11 +1,72 @@
-<!DOCTYPE html>
-    <html>
-        <head>
-            <meta charset = "UTF-8">
-            <title>Big Blue Is You</title>
-            <link rel="stylesheet" href="styles/style.css">
-        </head>
-        <body>
-            <h1 class = "header">Big Blue Is You</h1>
-        </body>
-    </html>
+<!DOCTYPE HTML>
+<html lang = "en-US">
+<head>
+    <meta charset = "UTF-8">
+    <title>Big Blue Is You</title>
+    
+    <link rel = "stylesheet" type = "text/css" href = "styles/game.css">
+</head>
+<body onload = "MyGame.game.initialize();">
+    <div id = "game">
+
+        <div id = "main-menu" class = "screen">
+            <ul class = "menu">
+                <li><button id = "id-new-game">New&nbsp;Game</button></li>
+                <li><button id = "id-high-scores">High&nbsp;Scores</button></li>
+                <li><button id = "id-credits">Credits</button></li>
+            </ul>
+        </div>
+
+        <div id = "game-play" class = "screen">
+            <canvas id = "id-canvas" width = "1000" height = "800"></canvas>
+        </div>
+
+        <div id = "high-scores" class = "screen">
+            <h1>High Scores</h1>
+            <fieldset>
+                <div id="score-Output"></div>
+            </fieldset>
+            
+            <ul class = "menu">
+                <li><button id = "id-high-scores-back">Back</button></li>
+                <li><button id = "id-high-scores-reset">Reset Scores</button></li>
+                <li><button id = "id-high-scores-add" hidden>add</button></li>
+
+            </ul>
+        </div>
+
+        <div id = "credits" class = "screen">
+            <h1>Credits</h1>
+            <p>Developed poorly by </p>
+            <p>Kevin M Whitmore</p>
+            <p>Who is currently at his wits end an is most likely in the middle of an emotional break down.</p>
+            <P></P>
+            <p>Much gratitude to the one grading this</p>
+            <ul class = "menu">
+                <li><button id = "id-credits-back">Back</button></li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <script>
+        let MyGame = {
+            screens : {},
+            input: {},
+            objects: {},
+            render: []
+        };
+    </script>
+    <script src = "scripts/input-keyboard.js"></script>
+
+    <script src = "scripts/screens/game.js"></script>
+    <script src = "scripts/screens/mainmenu.js"></script>
+    <script src = "scripts/gameplay.js"></script>
+    <script src = "scripts/screens/highscores.js"></script>
+    <script src = "scripts/screens/credits.js"></script>
+    <script src = "assets/components.js"></script>
+    <script src = "scripts/render/core.js"></script>
+    <script src = "scripts/render/renderer.js"></script>
+
+</body>
+</html>

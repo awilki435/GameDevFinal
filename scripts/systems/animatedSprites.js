@@ -8,28 +8,42 @@
 MyGame.systems.animatedSprites = (function (graphics) {
     'use strict';
 
+    const duration = 2; // animation duration in seconds
+    let elapsed = 0; // elapsed time in seconds
+    let sprite = [];
+
     // --------------------------------------------------------------
     //
     // Find all the entities with both sprites and position components
     // and render them.
     //
     // --------------------------------------------------------------
-    function findMovable(entities) {
-        let sprite = [];
+    function findSprites(entities) {
+        sprite = [];
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components.animatedSprites && entity.components.position) {
                 sprite.push(entity);
             }
         }
-
-        return movable;
     }
 
-    function renderEntities(entities) {
+    function updateSprites(time) {
+        sprites.forEach(sprite => {
+            // update sprite position based on progress
+            sprite.animatedSprites.spriteWidth
+            scurrentFrame = (currentFrame + 1) % 3;
+            spriteX = currentFrame * spriteWidth;
+            
+        });
+        
+    }
+
+    function renderSprites(entities) {
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components.appearance && entity.components.position) {
+
                 MyGame.render.segmented(graphics, entity.components.appearance, entity.components.position);
             }
         }
@@ -41,15 +55,19 @@ MyGame.systems.animatedSprites = (function (graphics) {
 
 
 
-    
+
     // --------------------------------------------------------------
     //
     // Public interface used to get the whole game rendered.
     //
     // --------------------------------------------------------------
     function update(elapsedTime, entities) {
+        // locate sprites entities
+        findSprites(entities);
+        // Render Background
         MyGame.render.background(graphics);
-        renderEntities(entities);
+        updateSprites()
+        renderSprites(sprites);
     }
 
     let api = {

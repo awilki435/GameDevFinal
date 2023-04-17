@@ -48,25 +48,18 @@
         </div>
         
     </div>
-
     <script>
-        let MyGame = {
-            screens : {},
-            input: {},
-            objects: {},
-            render: []
-        };
+    MyGame = {
+        screens : {},
+        input: {},
+        objects: {},
+        render: [],
+        assets: {},
+        components: {},
+        systems: {},
+    };
     </script>
-    <script src = "scripts/input-keyboard.js"></script>
-
-    <script src = "scripts/screens/game.js"></script>
-    <script src = "scripts/screens/mainmenu.js"></script>
-    <script src = "scripts/gameplay.js"></script>
-    <script src = "scripts/screens/highscores.js"></script>
-    <script src = "scripts/screens/credits.js"></script>
-    <script src = "assets/components.js"></script>
-    <script src = "scripts/render/core.js"></script>
-    <script src = "scripts/render/renderer.js"></script>
+    <script data-main = "scripts/loader" src = "scripts/require.js"></script>
 
 </body>
 </html>

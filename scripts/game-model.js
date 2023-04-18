@@ -2,11 +2,12 @@ function GameModel() {
     'use strict';
     
 
-    let entities = {};  // key is 'id', value is an Entity
+    let entities = [];  // key is 'id', value is an Entity
 
     // get level data
     // create and add entites based on level data
 
+    entities.push(createWordBaba(500,500));
 
     // --------------------------------------------------------------
     //
@@ -66,10 +67,10 @@ function GameModel() {
     //
     // --------------------------------------------------------------
     function update(elapsedTime) {
-        MyGame.systems.keyboardInput.update(elapsedTime, entities);
-        MyGame.systems.movement.update(elapsedTime, entities);
-        MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
-        MyGame.systems.render.update(elapsedTime, entities);
+        // MyGame.systems.keyboardInput.update(elapsedTime, entities);
+        // MyGame.systems.movement.update(elapsedTime, entities);
+        // MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
+        MyGame.systems.animatedSprites.update(elapsedTime, entities);
     }
 
     initialize();

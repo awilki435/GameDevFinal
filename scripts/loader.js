@@ -336,7 +336,7 @@ MyGame.loader = (function() {
     //------------------------------------------------------------------
     function mainComplete() {
         console.log('It is all loaded up');
-        MyGame.main.initialize();
+        MyGame.game.initialize();
     }
 
     //

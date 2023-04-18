@@ -36,6 +36,19 @@ MyGame.graphics = (function() {
         }
     }
 
+    function drawSprite(spec){
+        drawImage(
+            spec.animatedSprite.imageSrc, //scr
+            spec.animatedSprite.spriteWidth * spec.animatedSprite.currentFrame,
+            0,
+            spec.animatedSprite.spriteWidth,
+            spec.animatedSprite.spriteHeight,
+            spec.position.x,
+            spec.position.y, 
+            spec.animatedSprite.spriteWidth, //size of sprite
+            spec.animatedSprite.spriteHeight);
+    }
+
     // neds obj : x, y, size color 
     function drawRectangle(spec){
         // console.log("drawRect");
@@ -76,7 +89,8 @@ MyGame.graphics = (function() {
         clear: clear,
         drawRectangle:drawRectangle,
         drawTexture: drawTexture,
-        drawText: drawText
+        drawText: drawText,
+        drawSprite:drawSprite
     };
 
     return api;

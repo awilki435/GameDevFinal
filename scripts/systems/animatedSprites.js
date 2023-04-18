@@ -48,8 +48,8 @@ MyGame.systems.animatedSprites = (function (graphics) {
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components.appearance && entity.components.position) {
-
-               graphics.drawTexture(entity); //!!! send to core(need to modify) or send to render translate enditiy data
+                // console.log(entity);
+               graphics.drawSprite(entity); //!!! send to core(need to modify) or send to render translate enditiy data
             }
         }
     }

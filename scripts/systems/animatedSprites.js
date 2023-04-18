@@ -9,7 +9,7 @@ MyGame.systems.animatedSprites = (function (graphics) {
     'use strict';
 
     const duration = 2; // animation duration in seconds
-    let elapsed = 0; // elapsed time in seconds
+    let deltaTime = 0; // elapsed time in seconds
     let sprite = [];
 
     // --------------------------------------------------------------
@@ -28,33 +28,31 @@ MyGame.systems.animatedSprites = (function (graphics) {
         }
     }
 
-    function updateSprites(time) {
-        sprites.forEach(sprite => {
-            // update sprite position based on progress
-            sprite.animatedSprites.spriteWidth
-            scurrentFrame = (currentFrame + 1) % 3;
-            spriteX = currentFrame * spriteWidth;
-            
-        });
+    function updateSprites() {
+        // check if time eleaped cumulative is equal to duration of frame
+        
+            sprite.forEach(sprite => {
+                // update sprite position based on progress
+                let curFrame = sprite.animatedSprites.currentFrame;
+                sprite.animatedSprites.currentFrame = (curFrame + 1) % sprite.animatedSprites.frameCount;
+                
+                
+            });
+
+        
         
     }
 
     function renderSprites(entities) {
+        // loop through all enities and render them
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components.appearance && entity.components.position) {
 
-                MyGame.render.segmented(graphics, entity.components.appearance, entity.components.position);
+               graphics.drawTexture(entity); //!!! send to core(need to modify) or send to render translate enditiy data
             }
         }
     }
-
-
-
-
-
-
-
 
     // --------------------------------------------------------------
     //
@@ -62,11 +60,17 @@ MyGame.systems.animatedSprites = (function (graphics) {
     //
     // --------------------------------------------------------------
     function update(elapsedTime, entities) {
-        // locate sprites entities
+        // locate sprites entities in stack
         findSprites(entities);
         // Render Background
         MyGame.render.background(graphics);
-        updateSprites()
+        // Hamdle all sprite data and rendering
+        deltaTime += elapsedTime;
+
+        if( deltaTime <= duration){
+            updateSprites(elapsedTime);
+            deltaTime = 0;
+        }
         renderSprites(sprites);
     }
 

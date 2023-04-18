@@ -19,6 +19,10 @@ MyGame.loader = (function() {
             message: 'Entity Creator Loaded',
             onComplete: null
         }, {
+            scripts: ['entity'],
+            message: 'Entity Loaded',
+            onComplete: null
+        },{
             scripts: ['Components/animatedSprites'],
             message: 'Component: Animated Sprites has loaded',
             onComplete: null

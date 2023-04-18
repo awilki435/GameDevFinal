@@ -9,7 +9,8 @@ MyGame.components.AnimatedSprites = function(spec) {
         get spriteX() {return spec.spriteX},
         get spriteY() {return spec.spriteY},
         get frameCount() {return spec.frameCount},
-        get currentFrame() {return spec.currentFrame}
+        get currentFrame() {return spec.currentFrame},
+        set currentFrame(value) {spec.currentFrame = value;}
     };
 
     return api;

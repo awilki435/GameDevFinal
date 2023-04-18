@@ -47,6 +47,7 @@ MyGame.graphics = (function() {
             spec.position.y, 
             spec.animatedSprite.spriteWidth, //size of sprite
             spec.animatedSprite.spriteHeight);
+        console.log("Draw Sprite: Image Drawn")
     }
 
     // neds obj : x, y, size color 

@@ -10,7 +10,7 @@ MyGame.systems.animatedSprites = (function (graphics) {
 
     const duration = 2; // animation duration in seconds
     let deltaTime = 0; // elapsed time in seconds
-    let sprite = [];
+    let sprites = [];
 
     // --------------------------------------------------------------
     //
@@ -19,11 +19,11 @@ MyGame.systems.animatedSprites = (function (graphics) {
     //
     // --------------------------------------------------------------
     function findSprites(entities) {
-        sprite = [];
+        sprites = [];
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components.animatedSprites && entity.components.position) {
-                sprite.push(entity);
+                sprites.push(entity);
             }
         }
     }
@@ -31,16 +31,12 @@ MyGame.systems.animatedSprites = (function (graphics) {
     function updateSprites() {
         // check if time eleaped cumulative is equal to duration of frame
         
-            sprite.forEach(sprite => {
+            for(let id in sprites){
                 // update sprite position based on progress
-                let curFrame = sprite.animatedSprites.currentFrame;
-                sprite.animatedSprites.currentFrame = (curFrame + 1) % sprite.animatedSprites.frameCount;
-                
-                
-            });
-
-        
-        
+                let entity = sprites[id];
+                let curFrame = entity.components.animatedSprites.currentFrame;
+                entity.components.animatedSprites.currentFrame = (curFrame + 1) % entity.components.animatedSprites.frameCount;
+            }
     }
 
     function renderSprites(entities) {

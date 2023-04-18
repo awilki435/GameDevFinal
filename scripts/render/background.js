@@ -1,5 +1,7 @@
 MyGame.render.background = function (graphics) {
     'use strict';
 
-    graphics.drawSquare({ x: 0, y: 0 }, graphics.width, 'rgb(0, 0, 255)');
+    let spec = {color: {fill: 'rgb(0, 0, 255)',stroke: 'rgb(0, 0, 255)'}, x: 0, y: 0, width: 1000, height: 1000};
+
+    MyGame.graphics.drawRectangle(spec);
 };

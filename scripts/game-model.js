@@ -45,19 +45,7 @@ function GameModel() {
     //
     // --------------------------------------------------------------
     function initialize() {
-        console.log('initializing borders...');
-        mergeObjects(entities, initializeBorder());
-
-        console.log('initializing obstacles...');
-        mergeObjects(entities, initializeObstacles());
-
-        console.log('initializing snake starting position...');
-        let snake = initializeSnake();
-        entities[snake.id] = snake;
-
-        console.log('initializing first food location...');
-        let food = createFood();
-        entities[food.id] = food;
+        
     }
 
     // --------------------------------------------------------------

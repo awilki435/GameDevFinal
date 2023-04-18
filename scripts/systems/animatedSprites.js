@@ -24,6 +24,7 @@ MyGame.systems.animatedSprites = (function (graphics) {
             let entity = entities[id];
             if (entity.components.animatedSprites && entity.components.position) {
                 sprites.push(entity);
+                // console.log(entity);
             }
         }
     }
@@ -41,11 +42,12 @@ MyGame.systems.animatedSprites = (function (graphics) {
 
     function renderSprites(entities) {
         // loop through all enities and render them
+        // console.log("renderSprites: ");
         for (let id in entities) {
             let entity = entities[id];
-            if (entity.components.appearance && entity.components.position) {
+            if (entity.components.animatedSprites && entity.components.position) {
                 // console.log(entity);
-               graphics.drawSprite(entity); //!!! send to core(need to modify) or send to render translate enditiy data
+               MyGame.graphics.drawSprite(entity); //!!! send to core(need to modify) or send to render translate enditiy data
             }
         }
     }
@@ -68,6 +70,7 @@ MyGame.systems.animatedSprites = (function (graphics) {
             deltaTime = 0;
         }
         renderSprites(sprites);
+        // console.log(sprites);
     }
 
     let api = {

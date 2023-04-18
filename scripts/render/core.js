@@ -37,7 +37,7 @@ MyGame.graphics = (function() {
     }
 
     function drawSprite(spec){
-        drawImage(
+        context.drawImage(
             spec.animatedSprite.imageSrc, //scr
             spec.animatedSprite.spriteWidth * spec.animatedSprite.currentFrame,
             0,
@@ -91,7 +91,7 @@ MyGame.graphics = (function() {
         drawRectangle:drawRectangle,
         drawTexture: drawTexture,
         drawText: drawText,
-        drawSprite:drawSprite
+        drawSprite: drawSprite
     };
 
     return api;

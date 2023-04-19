@@ -175,9 +175,24 @@ MyGame.loader = (function() {
             key: 'win',
             source: '/assets/sounds/win_condition_changed.mp3'
         }, {
-            key: 'levelData',
+            key: 'levelData1',
             source: '/assets/leveldata/level-1.bbiy'
-        }
+        }, {
+            key: 'level-2',
+            source: '/assets/leveldata/level-2.bbiy'
+        }, {
+            key: 'level-3',
+            source: '/assets/leveldata/level-3.bbiy'
+        }, {
+            key: 'level-4',
+            source: '/assets/leveldata/level-4.bbiy'
+        }, {
+            key: 'level-5',
+            source: '/assets/leveldata/level-5.bbiy'
+        }, {
+            key: 'level-all',
+            source: '/assets/leveldata/level-all.bbiy'
+        }, 
     ];
 
     //------------------------------------------------------------------
@@ -268,7 +283,7 @@ MyGame.loader = (function() {
                         asset = new Image();
                     } else if (fileExtension === 'mp3') {
                         asset = new Audio();
-                    } else if (fileExtension === 'txt') {
+                    } else if (fileExtension === 'txt' || fileExtension == "bbiy") {
                         if (onSuccess) { onSuccess(xhr.responseText); }
                     }
                     else {

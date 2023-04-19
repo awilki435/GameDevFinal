@@ -163,7 +163,7 @@ function createWater (x,y){
 function createWordBaba (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-baba.png', 
+        imageSrc: MyGame.assets['baba-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,

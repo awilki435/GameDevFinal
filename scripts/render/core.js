@@ -38,8 +38,9 @@ MyGame.graphics = (function() {
 
     function drawSprite(spec){
         // debugger
-        console.log(spec);
+        // console.log(spec);
         // let test = spec.components.animatedSprites.spriteWidth;
+        
         context.drawImage(
             spec.components.animatedSprites.imageSrc, //scr
             spec.components.animatedSprites.spriteWidth * spec.components.animatedSprites.currentFrame,
@@ -50,7 +51,7 @@ MyGame.graphics = (function() {
             spec.components.position.y, 
             spec.components.animatedSprites.spriteWidth, //size of sprite
             spec.components.animatedSprites.spriteHeight);
-        console.log("Draw Sprite: Image Drawn")
+        // console.log("Draw Sprite: Image Drawn")
     }
 
     // neds obj : x, y, size color 

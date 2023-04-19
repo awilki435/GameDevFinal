@@ -8,7 +8,7 @@
 MyGame.systems.animatedSprites = (function (graphics) {
     'use strict';
 
-    const duration = 2; // animation duration in seconds
+    const duration = 500; // animation duration in seconds
     let deltaTime = 0; // elapsed time in seconds
     let sprites = [];
 
@@ -65,9 +65,9 @@ MyGame.systems.animatedSprites = (function (graphics) {
         // Hamdle all sprite data and rendering
         deltaTime += elapsedTime;
 
-        if( deltaTime <= duration){
+        if( deltaTime >= duration){
             updateSprites(elapsedTime);
-            deltaTime = 0;
+            deltaTime = deltaTime % duration;
         }
         renderSprites(sprites);
         // console.log(sprites);

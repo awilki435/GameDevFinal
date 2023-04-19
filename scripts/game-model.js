@@ -6,8 +6,9 @@ function GameModel() {
 
     // get level data
     // create and add entites based on level data
-
+    console.log(MyGame.assets);
     entities.push(createWordBaba(500,500));
+    
 
     // --------------------------------------------------------------
     //

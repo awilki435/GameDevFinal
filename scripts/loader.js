@@ -174,6 +174,9 @@ MyGame.loader = (function() {
         }, {
             key: 'win',
             source: '/assets/sounds/win_condition_changed.mp3'
+        }, {
+            key: 'levelData',
+            source: '/assets/leveldata/level-1.bbiy'
         }
     ];
 

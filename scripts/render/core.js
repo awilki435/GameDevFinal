@@ -37,18 +37,19 @@ MyGame.graphics = (function() {
     }
 
     function drawSprite(spec){
+        // debugger
         console.log(spec);
-        let test = spec.components.animatedSprite.spriteWidth;
+        // let test = spec.components.animatedSprites.spriteWidth;
         context.drawImage(
-            spec.components.animatedSprite.imageSrc, //scr
-            spec.components.animatedSprite.spriteWidth * spec.components.animatedSprite.currentFrame,
+            spec.components.animatedSprites.imageSrc, //scr
+            spec.components.animatedSprites.spriteWidth * spec.components.animatedSprites.currentFrame,
             0,
-            spec.components.animatedSprite.spriteWidth,
-            spec.components.animatedSprite.spriteHeight,
+            spec.components.animatedSprites.spriteWidth,
+            spec.components.animatedSprites.spriteHeight,
             spec.components.position.x,
             spec.components.position.y, 
-            spec.components.animatedSprite.spriteWidth, //size of sprite
-            spec.components.animatedSprite.spriteHeight);
+            spec.components.animatedSprites.spriteWidth, //size of sprite
+            spec.components.animatedSprites.spriteHeight);
         console.log("Draw Sprite: Image Drawn")
     }
 

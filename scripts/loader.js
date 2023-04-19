@@ -189,10 +189,7 @@ MyGame.loader = (function() {
         }, {
             key: 'level-5',
             source: '/assets/leveldata/level-5.bbiy'
-        }, {
-            key: 'level-all',
-            source: '/assets/leveldata/level-all.bbiy'
-        }, 
+        },
     ];
 
     //------------------------------------------------------------------
@@ -274,7 +271,7 @@ MyGame.loader = (function() {
 
         if (fileExtension) {
             xhr.open('GET', source, true);
-            xhr.responseType = (fileExtension === 'txt') ? 'text' : 'blob';
+            xhr.responseType = (fileExtension === 'txt' || fileExtension == 'bbiy') ? 'text' : 'blob';
 
             xhr.onload = function() {
                 let asset = null;

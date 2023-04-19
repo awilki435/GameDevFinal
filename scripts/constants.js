@@ -1,5 +1,7 @@
 // used for cross program refrences
 
+const CANVAS_WIDTH = 1000;
+
 // Properties bit masking identification
 const NONE =    0x00000;
 const STOP =    0x00001;

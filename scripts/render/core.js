@@ -40,7 +40,8 @@ MyGame.graphics = (function() {
         // debugger
         // console.log(spec);
         // let test = spec.components.animatedSprites.spriteWidth;
-        
+        let gridSize = CANVAS_WIDTH / 20;
+        console.log(gridSize);
         context.drawImage(
             spec.components.animatedSprites.imageSrc, //scr
             spec.components.animatedSprites.spriteWidth * spec.components.animatedSprites.currentFrame,
@@ -48,9 +49,12 @@ MyGame.graphics = (function() {
             spec.components.animatedSprites.spriteWidth,
             spec.components.animatedSprites.spriteHeight,
             spec.components.position.x,
-            spec.components.position.y, 
-            spec.components.animatedSprites.spriteWidth, //size of sprite
-            spec.components.animatedSprites.spriteHeight);
+            spec.components.position.y,
+            gridSize,
+            gridSize );
+
+            // spec.components.animatedSprites.spriteWidth, //size of sprite
+            // spec.components.animatedSprites.spriteHeight);
         // console.log("Draw Sprite: Image Drawn")
     }
 

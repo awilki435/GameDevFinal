@@ -8,12 +8,12 @@
 function createBaba (x,y) {
     let baba = null;
     let sprite = {
-        imageSrc: 'sprite_0.png', 
-        spriteWidth: 24,
-        spriteHeight:  24,
+        imageSrc: MyGame.assets.bb, 
+        spriteWidth: 530,
+        spriteHeight:  900,
         spriteX: 0,
         spriteY: 0,
-        frameCount: 3,
+        frameCount: 1,
         currentFrame: 0
     }
     let typeClass = {
@@ -30,7 +30,7 @@ function createBaba (x,y) {
 function createFlag (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'flag.png', 
+        imageSrc: MyGame.assets.flag, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -49,7 +49,7 @@ function createFlag (x,y){
  function createFloor (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'floor.png', 
+        imageSrc: MyGame.assets.floor, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -68,7 +68,7 @@ function createFlag (x,y){
  function createHedge (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'hedge.png', 
+        imageSrc: MyGame.assets.hedge, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -87,7 +87,7 @@ function createFlag (x,y){
 function createLava (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'lava.png', 
+        imageSrc: MyGame.assets.lava, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -106,7 +106,7 @@ function createLava (x,y){
 function createRock (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'rock.png', 
+        imageSrc: MyGame.assets.rock, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -125,7 +125,7 @@ function createRock (x,y){
 function createWall (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'wall.png', 
+        imageSrc: MyGame.assets.wall, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -144,7 +144,7 @@ function createWall (x,y){
 function createWater (x,y){
     let object = null;
     let sprite = {
-        imageSrc: 'water.png', 
+        imageSrc: MyGame.assets.water, 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -182,7 +182,7 @@ function createWordBaba (x,y) {
 function createWordFlag (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-flag.png', 
+        imageSrc:  MyGame.assets['word-flag.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -201,7 +201,7 @@ function createWordFlag (x,y) {
 function createWordLava (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-lava.png', 
+        imageSrc:  MyGame.assets['word-lava.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -220,7 +220,7 @@ function createWordLava (x,y) {
 function createWordRock (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-rock.png', 
+        imageSrc:  MyGame.assets['word-rock.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -239,7 +239,7 @@ function createWordRock (x,y) {
 function createWordWall (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-wall.png', 
+        imageSrc:  MyGame.assets['word-wall.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -258,7 +258,7 @@ function createWordWall (x,y) {
 function createWordWater(x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-water.png', 
+        imageSrc:  MyGame.assets['word-water.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -277,7 +277,7 @@ function createWordWater(x,y) {
 function createWordIs (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-is.png', 
+        imageSrc:  MyGame.assets['word-is.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -296,7 +296,7 @@ function createWordIs (x,y) {
 function createWordKill (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-Kill.png', 
+        imageSrc:  MyGame.assets['word-Kill.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -315,7 +315,7 @@ function createWordKill (x,y) {
 function createWordPush (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-push.png', 
+        imageSrc:  MyGame.assets['word-push.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -334,7 +334,7 @@ function createWordPush (x,y) {
 function createWordSink (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-sink.png', 
+        imageSrc:  MyGame.assets['word-sink.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -353,7 +353,7 @@ function createWordSink (x,y) {
 function createWordStop (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-stop.png', 
+        imageSrc:  MyGame.assets['word-stop.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -372,7 +372,7 @@ function createWordStop (x,y) {
 function createWordWin (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-win.png', 
+        imageSrc:  MyGame.assets['word-win.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -391,7 +391,7 @@ function createWordWin (x,y) {
 function createWordyou (x,y) {
     let word = null;
     let sprite = {
-        imageSrc: 'word-you.png', 
+        imageSrc:  MyGame.assets['word-you.png'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,

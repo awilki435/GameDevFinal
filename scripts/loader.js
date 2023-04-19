@@ -27,24 +27,8 @@ MyGame.loader = (function() {
             message: 'Component: Animated Sprites has loaded',
             onComplete: null
         }, {
-            scripts: ['Components/collision'],
-            message: 'Component: collision has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/defeat'],
-            message: 'Component: Defeat has loaded',
-            onComplete: null
-        }, {
             scripts: ['Components/keyboard-controlled'],
             message: 'Component: Keyboard Controlled has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/noun'],
-            message: 'Component: Noun has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/object'],
-            message: 'Component: Object has loaded',
             onComplete: null
         }, {
             scripts: ['Components/position'],
@@ -55,28 +39,8 @@ MyGame.loader = (function() {
             message: 'Component: Property has loaded',
             onComplete: null
         }, {
-            scripts: ['Components/push'],
-            message: 'Component: Push has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/sink'],
-            message: 'Component: Sink has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/stop'],
-            message: 'Component: Stop has loaded',
-            onComplete: null
-        }, {
             scripts: ['Components/type'],
             message: 'Component: Type has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/verb'],
-            message: 'Component: Verb has loaded',
-            onComplete: null
-        }, {
-            scripts: ['Components/win'],
-            message: 'Component: Win has loaded',
             onComplete: null
         }, {
             scripts: ['game-model'],

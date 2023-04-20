@@ -175,7 +175,7 @@ MyGame.loader = (function() {
             key: 'win',
             source: '/assets/sounds/win_condition_changed.mp3'
         }, {
-            key: 'levelData1',
+            key: 'level-1',
             source: '/assets/leveldata/level-1.bbiy'
         }, {
             key: 'level-2',
@@ -189,6 +189,9 @@ MyGame.loader = (function() {
         }, {
             key: 'level-5',
             source: '/assets/leveldata/level-5.bbiy'
+        },{
+            key: 'level-all',
+            source: '/assets/leveldata/levels-all.bbiy'
         },
     ];
 

@@ -11,7 +11,14 @@ function GameModel() {
     entities.push(createWater(400,500));
     entities.push(createBaba(300,500));
     
-
+   // --------------------------------------------------------------
+    //
+    // Clears all exiting entities
+    //
+    // --------------------------------------------------------------
+    function clearEntities() {
+        entities = [];
+    }
     // --------------------------------------------------------------
     //
     // Interface that allows systems to report events back to the overall
@@ -67,6 +74,7 @@ function GameModel() {
     initialize();
 
     let api = {
+        clearEntities:clearEntities,
         update: update
     };
 

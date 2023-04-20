@@ -1,56 +1,80 @@
-// level selection screen
-// render one button ber level based off of level data
-// wipe entities and send new level data 
+MyGame.screens['level-select'] = (function(game) {
+    'use strict';
+    
+    function initialize() {
+        let levelData = MyGame.assets['level-all'].split('\n');
+        // console.log(levelData);
 
-let levelData = MyGame.assets['level-all'].split('\n');
-// console.log(levelData);
+        let levels = [];
 
-// let level = {
-//     name: ,
-//     size: ,
-//     static:[],
-//      objects:[]
-// }
-let levels = [];
+        // Find levels
+        for (let i = 0; i < levelData.length; i++) {
+            let line = levelData[i];
+            if (line.includes("almost")) {
+                levels.push({startline:i,name: line})
+            }else if (line.includes('Level')){
+                levels.push({startline:i,name: line})
+            }
+        }
+        // Find grid size
+        for (let i = 0; i < levels.length; i++) {
+            let start = levels[i].startline;
+            let number = levelData[start+1].match(/\d+\.\d+|\d+/)[0];
+            levels[i].gridSize = parseInt(number);
+        }
+        // Get first set of level data
+        for (let i = 0; i < levels.length; i++) {
+            let grid = [];
+            let line = levels[i].startline + 2;
+            // console.log('grid',levels[i].gridSize);
+            let end = line + levels[i].gridSize;
+            // console.log('start',line, 'end',end);
+            for (line; line < end; line++) {
+                grid.push(levelData[line].split(''));  
+            }
+            levels[i].static = grid;
+        }
+        // get second set of level data
+        for (let i = 0; i < levels.length; i++) {
+            let grid = [];
+            let line = levels[i].startline + 22;
+            // console.log('grid',levels[i].gridSize);
+            let end = line + levels[i].gridSize;
+            // console.log('start',line, 'end',end);
+            for (line; line < end; line++) {
+                grid.push(levelData[line].split(''));  
+            }
+            levels[i].obj = grid;
+        }
 
-// Find levels
-for (let i = 0; i < levelData.length; i++) {
-    let line = levelData[i];
-    if (line.includes("almost")) {
-        levels.push({startline:i,name: line})
-    }else if (line.includes('Level')){
-        levels.push({startline:i,name: line})
+        console.log(levels);
+        //
+        // Setup each of menu events for the screens
+        let buttonNames = ["Button 1", "Button 2", "Button 3"];
+
+        let buttonContainer = document.getElementById("level-select");
+        levels.map(name => {
+        let button = document.createElement("button");
+        button.innerText = name.name;
+        buttonContainer.appendChild(button);
+
+        button.addEventListener("click", function() {
+            console.log("Button " + name.name + " was clicked.");
+            game.showScreen('game-play');
+            model.clearEntities();
+        });
+        
+
+      });
     }
-}
-// Find grid size
-for (let i = 0; i < levels.length; i++) {
-    let start = levels[i].startline;
-    let number = levelData[start+1].match(/\d+\.\d+|\d+/)[0];
-    levels[i].gridSize = parseInt(number);
-}
-// Get first set of level data
-for (let i = 0; i < levels.length; i++) {
-    let grid = [];
-    let line = levels[i].startline + 2;
-    // console.log('grid',levels[i].gridSize);
-    let end = line + levels[i].gridSize;
-    // console.log('start',line, 'end',end);
-    for (line; line < end; line++) {
-        grid.push(levelData[line].split(''));  
+    
+    function run() {
+        //
+        // I know this is empty, there isn't anything to do.
     }
-    levels[i].static = grid;
-}
-// get second set of level data
-for (let i = 0; i < levels.length; i++) {
-    let grid = [];
-    let line = levels[i].startline + 22;
-    // console.log('grid',levels[i].gridSize);
-    let end = line + levels[i].gridSize;
-    // console.log('start',line, 'end',end);
-    for (line; line < end; line++) {
-        grid.push(levelData[line].split(''));  
-    }
-    levels[i].obj = grid;
-}
-
-console.log(levels);
+    
+    return {
+        initialize : initialize,
+        run : run
+    };
+}(MyGame.game));

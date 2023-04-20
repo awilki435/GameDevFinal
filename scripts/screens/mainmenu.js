@@ -4,9 +4,9 @@ MyGame.screens['main-menu'] = (function(game) {
     function initialize() {
         //
         // Setup each of menu events for the screens
-        document.getElementById('id-new-game').addEventListener(
+        document.getElementById('id-level-select').addEventListener(
             'click',
-            function() {game.showScreen('game-play'); });
+            function() { game.showScreen('level-select'); });
         
         document.getElementById('id-high-scores').addEventListener(
             'click',

@@ -433,10 +433,21 @@ function createObjEntity(x, y, sprite, type) {
     obj.addComponent(MyGame.components.AnimatedSprites(sprite));
     obj.addComponent(MyGame.components.Position({x:x, y:y}));
     obj.addComponent(MyGame.components.Type(type));
-
+    if(type['type'] == 'baba'){
+        let inputs = {keys: {
+            'w': 'up',
+            'a': 'left',
+            's': 'down',
+            'd': 'right',
+        }};
+        obj.addComponent(MyGame.components.KeyboardControlled(inputs))
+    }
     return obj;
 }
 
+function addProperties(entity){
+
+}
 
 // create object
 //create word

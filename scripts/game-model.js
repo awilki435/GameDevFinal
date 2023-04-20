@@ -143,7 +143,7 @@ function GameModel() {
     //
     // --------------------------------------------------------------
     function update(elapsedTime) {
-        // MyGame.systems.keyboardInput.update(elapsedTime, entities);
+        MyGame.input.Keyboard.update(elapsedTime,entities);
         // MyGame.systems.movement.update(elapsedTime, entities);
         // MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
         MyGame.systems.animatedSprites.update(elapsedTime, entities);

@@ -26,7 +26,7 @@ MyGame.loader = (function() {
             scripts: ['Components/animatedSprites'],
             message: 'Component: Animated Sprites has loaded',
             onComplete: null
-        }, {
+        },  {
             scripts: ['Components/keyboard-controlled'],
             message: 'Component: Keyboard Controlled has loaded',
             onComplete: null

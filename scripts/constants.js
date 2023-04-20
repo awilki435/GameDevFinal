@@ -9,6 +9,7 @@ const PUSH =    0x00010;
 const SINK =    0x00100;
 const DEFEAT =  0x01000;
 const WIN =     0x10000;
+const STOP_PERSISTANCE =     0x100000;
 
 const collision = 0x0001; //IS NEEDED?
 

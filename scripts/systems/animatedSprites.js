@@ -30,7 +30,7 @@ MyGame.systems.animatedSprites = (function (graphics) {
     }
 
     function updateSprites() {
-        // check if time eleaped cumulative is equal to duration of frame
+        // check if time elapsed cumulative is equal to duration of frame
         
             for(let id in sprites){
                 // update sprite position based on progress

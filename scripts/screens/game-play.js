@@ -38,6 +38,10 @@ MyGame.screens['game-play'] = (function(manager, graphics, input) {
         }
     }
 
+    function populateMap(data){
+        model.setUpLevel(data)
+    }
+
     function run() {
         model = GameModel();
         //
@@ -49,6 +53,7 @@ MyGame.screens['game-play'] = (function(manager, graphics, input) {
 
     return {
         initialize : initialize,
-        run : run
+        run : run,
+        populateMap:populateMap
     };
 }(MyGame.manager, MyGame.graphics, MyGame.input));

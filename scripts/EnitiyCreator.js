@@ -65,6 +65,25 @@ function createFlag (x,y){
     return object;
 }
 
+function createGrass (x,y){
+    let object = null;
+    let sprite = {
+        imageSrc: MyGame.assets.grass, 
+        spriteWidth: 24,
+        spriteHeight:  24,
+        spriteX: 0,
+        spriteY: 0,
+        frameCount: 3,
+        currentFrame: 0
+    }
+    let typeClass = {
+        type: 'grass',
+        wordType: 'none'
+    }
+    object = createObjEntity(x,y,sprite,typeClass);
+    return object;
+}
+
  function createHedge (x,y){
     let object = null;
     let sprite = {
@@ -182,7 +201,7 @@ function createWordBaba (x,y) {
 function createWordFlag (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-flag.png'], 
+        imageSrc:  MyGame.assets['flag-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -201,7 +220,7 @@ function createWordFlag (x,y) {
 function createWordLava (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-lava.png'], 
+        imageSrc:  MyGame.assets['lava-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -220,7 +239,7 @@ function createWordLava (x,y) {
 function createWordRock (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-rock.png'], 
+        imageSrc:  MyGame.assets['rock-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -239,7 +258,7 @@ function createWordRock (x,y) {
 function createWordWall (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-wall.png'], 
+        imageSrc: MyGame.assets['wall-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -258,7 +277,7 @@ function createWordWall (x,y) {
 function createWordWater(x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-water.png'], 
+        imageSrc:  MyGame.assets['water-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -277,7 +296,7 @@ function createWordWater(x,y) {
 function createWordIs (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-is.png'], 
+        imageSrc:  MyGame.assets['is-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -296,7 +315,7 @@ function createWordIs (x,y) {
 function createWordKill (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-Kill.png'], 
+        imageSrc:  MyGame.assets['kill-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -315,7 +334,7 @@ function createWordKill (x,y) {
 function createWordPush (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-push.png'], 
+        imageSrc:  MyGame.assets['push-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -334,7 +353,7 @@ function createWordPush (x,y) {
 function createWordSink (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-sink.png'], 
+        imageSrc:  MyGame.assets['sink-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -353,7 +372,7 @@ function createWordSink (x,y) {
 function createWordStop (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-stop.png'], 
+        imageSrc:  MyGame.assets['stop-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -372,7 +391,7 @@ function createWordStop (x,y) {
 function createWordWin (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-win.png'], 
+        imageSrc:  MyGame.assets['win-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,
@@ -391,7 +410,7 @@ function createWordWin (x,y) {
 function createWordyou (x,y) {
     let word = null;
     let sprite = {
-        imageSrc:  MyGame.assets['word-you.png'], 
+        imageSrc:  MyGame.assets['you-word'], 
         spriteWidth: 24,
         spriteHeight:  24,
         spriteX: 0,

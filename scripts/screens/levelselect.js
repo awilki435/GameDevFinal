@@ -4,6 +4,7 @@ MyGame.screens['level-select'] = (function(game) {
     function initialize() {
         let levelData = MyGame.assets['level-all'].split('\n');
         // console.log(levelData);
+        console.log(MyGame.assets);
 
         let levels = [];
 
@@ -47,10 +48,9 @@ MyGame.screens['level-select'] = (function(game) {
             levels[i].obj = grid;
         }
 
-        console.log(levels);
+        // console.log(levels);
         //
         // Setup each of menu events for the screens
-        let buttonNames = ["Button 1", "Button 2", "Button 3"];
 
         let buttonContainer = document.getElementById("level-select");
         levels.map(name => {
@@ -61,7 +61,8 @@ MyGame.screens['level-select'] = (function(game) {
         button.addEventListener("click", function() {
             console.log("Button " + name.name + " was clicked.");
             game.showScreen('game-play');
-            model.clearEntities();
+            MyGame.screens['game-play'].populateMap(name);
+            
         });
         
 

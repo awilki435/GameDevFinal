@@ -121,6 +121,9 @@ MyGame.loader = (function() {
             key: 'rock',
             source: '/assets/images/rock.png'
         }, {
+            key: 'wall',
+            source: '/assets/images/wall.png'
+        },{
             key: 'water',
             source: '/assets/images/water.png'
         }, {

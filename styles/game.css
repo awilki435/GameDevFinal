@@ -42,6 +42,32 @@ ul.menu li {
     margin: 0.8em 0;
 }
 
+#level-select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#level-select button {
+    font-family: Arial, sans-serif;
+    font-size: 0.6em;
+    color: #CECEF6;
+    width: 10em;
+    height: 1.5em;
+    background: #04b439;
+    border: 0.1em solid rgb(23, 59, 221);
+    border-radius: 0.5em;
+    box-shadow: 0.2em 0.2em 0.3em rgb(0, 0, 0);
+    
+}
+#level-select button:hover {
+    background: #3b3baf;
+}
+#level-select button:active {
+    color: #CECEF6;
+    background: rgb(0, 0, 0);
+}
+
 ul.menu li button {
     font-family: Arial, sans-serif;
     font-size: 0.6em;

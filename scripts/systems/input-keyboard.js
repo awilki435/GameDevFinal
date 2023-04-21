@@ -17,16 +17,20 @@ MyGame.input.Keyboard = (function () {
                 for (let key in input.keys) {
                     if (keysDown[key]) {
                         if(key == 'w'){
-                            entity.components.position.y = entity.components.position.y - 1
+                            console.log("up")
+                            entity.components.position.y -= 1;
                         }
                         else if(key == 'a'){
-                            entity.components.position.x = entity.components.position.x - 1
+                            console.log("left")
+                            entity.components.position.x -=  1;
                         }
                         else if(key == 's'){
-                            entity.components.position.y = entity.components.position.y + 1
+                            console.log("down")
+                            entity.components.position.y += 1;
                         }
                         else if(key == 'd'){
-                            entity.components.position.x = entity.components.position.x + 1
+                            console.log("right")
+                            entity.components.position.x += 1;
                         }
                         delete keysDown[key]
                         MyGame.systems.gameReader().update(elapsedTime,objects)

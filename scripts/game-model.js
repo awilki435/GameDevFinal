@@ -3,6 +3,7 @@ function GameModel() {
     
 
     let entities = [];  // key is 'id', value is an Entity
+    let objects = [];
 
     // get level data
     // create and add entites based on level data
@@ -40,10 +41,12 @@ function GameModel() {
                 let obj = objMaker(EntityId, x ,y);
                 if (obj != null){
                     entities.push(obj);
+                    objects.push(obj);
                 }
                 
             }
         }
+        MyGame.systems.gameReader().gameSetup(entities);
         console.log(entities);
     }
  
@@ -107,10 +110,6 @@ function GameModel() {
     // --------------------------------------------------------------
     function reportEvent(info) {
         switch (info.type) {
-            case 'consume-food':
-                delete entities[info.entity.id];
-                let food = createFood();
-                entities[food.id] = food;
             case 'hit-something':
         }
     }
@@ -143,7 +142,8 @@ function GameModel() {
     //
     // --------------------------------------------------------------
     function update(elapsedTime) {
-        MyGame.input.Keyboard.update(elapsedTime,entities);
+        MyGame.input.Keyboard.update(elapsedTime,entities,objects);
+        MyGame.systems.collision().update(entities,reportEvent)
         // MyGame.systems.movement.update(elapsedTime, entities);
         // MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
         MyGame.systems.animatedSprites.update(elapsedTime, entities);

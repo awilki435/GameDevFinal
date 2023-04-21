@@ -3,7 +3,8 @@ MyGame.components.Property = function(spec) {
 
     let api = {
         get name() { return 'property'; },
-        get Properties(){ return spec.properties}
+        get Properties(){ return spec.properties},
+        set Properties(properties){spec.properties = properties}
     };
 
     return api;

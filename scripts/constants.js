@@ -3,13 +3,14 @@
 const CANVAS_WIDTH = 1000;
 
 // Properties bit masking identification
-const NONE =    0x00000;
-const STOP =    0x00001;
-const PUSH =    0x00010;
-const SINK =    0x00100;
-const DEFEAT =  0x01000;
-const WIN =     0x10000;
-const STOP_PERSISTANCE =     0x100000;
+const NONE =    0x0000000;
+const STOP =    0x0000001;
+const PUSH =    0x0000010;
+const SINK =    0x0000100;
+const DEFEAT =  0x0001000;
+const WIN =     0x0010000;
+const STOP_PERSISTANCE =     0x0100000;
+const PUSH_PERSISTANCE =     0x1000000;
 
 const collision = 0x0001; //IS NEEDED?
 

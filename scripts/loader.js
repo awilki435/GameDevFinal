@@ -51,6 +51,14 @@ MyGame.loader = (function() {
             message: 'Animated Sprites Loaded',
             onComplete: null
         }, {
+            scripts: ['Systems/gameReader'],
+            message: 'Reader has loaded',
+            onComplete: null
+        }, {
+            scripts: ['Systems/collision'],
+            message: 'Collision System has loaded',
+            onComplete: null
+        }, {
             scripts: ['Systems/input-keyboard'],
             message: 'Keyboard has loaded',
             onComplete: null

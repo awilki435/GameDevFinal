@@ -18,19 +18,19 @@ MyGame.input.Keyboard = (function () {
                     if (keysDown[key]) {
                         if(key == 'w'){
                             console.log("up")
-                            entity.components.position.y = entity.components.position.y - 1
+                            entity.components.position.y -= 1;
                         }
                         else if(key == 'a'){
                             console.log("left")
-                            entity.components.position.x = entity.components.position.x - 1
+                            entity.components.position.x -=  1;
                         }
                         else if(key == 's'){
                             console.log("down")
-                            entity.components.position.y = entity.components.position.y + 1
+                            entity.components.position.y += 1;
                         }
                         else if(key == 'd'){
                             console.log("right")
-                            entity.components.position.x = entity.components.position.x + 1
+                            entity.components.position.x += 1;
                         }
                         delete keysDown[key]
                     }

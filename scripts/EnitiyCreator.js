@@ -325,7 +325,7 @@ function createWordKill (x,y) {
     }
     let typeClass = {
         type: 'word',
-        wordType: 'Kill'
+        wordType: 'defeat'
     }
     word = createObjEntity(x,y,sprite,typeClass);
     return word;
@@ -433,15 +433,6 @@ function createObjEntity(x, y, sprite, type) {
     obj.addComponent(MyGame.components.AnimatedSprites(sprite));
     obj.addComponent(MyGame.components.Position({x:x, y:y}));
     obj.addComponent(MyGame.components.Type(type));
-    if(type['type'] == 'baba'){
-        let inputs = {keys: {
-            'w': 'up',
-            'a': 'left',
-            's': 'down',
-            'd': 'right',
-        }};
-        obj.addComponent(MyGame.components.KeyboardControlled(inputs))
-    }
     return obj;
 }
 

@@ -4,6 +4,7 @@ MyGame.components.AnimatedSprites = function(spec) {
     let api = {
         get name() { return 'animatedSprites'; },
         get imageSrc() {return spec.imageSrc},
+        set imageSrc(value) {spec.imageSrc = value},
         get spriteWidth() {return spec.spriteWidth},
         get spriteHeight() {return spec.spriteHeight},
         get spriteX() {return spec.spriteX},

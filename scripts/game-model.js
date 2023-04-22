@@ -4,6 +4,7 @@ function GameModel() {
 
     let entities = [];  // key is 'id', value is an Entity
     let objects = [];
+    let gameReader = "";
 
     // get level data
     // create and add entites based on level data
@@ -18,6 +19,7 @@ function GameModel() {
         entities = [];
         let grid2 = levelInfo.obj;
         let grid1 = levelInfo.static;
+        gameReader = MyGame.systems.gameReader()
         // entities.push(createWordBaba(1,1));
         // entities.push(createWordWall(1,2));
         // entities.push(createWordWall(1,3));
@@ -47,7 +49,6 @@ function GameModel() {
             }
         }
         MyGame.systems.gameReader().gameSetup(entities);
-        console.log(entities);
     }
  
     function objMaker(EntityId, x,y){
@@ -110,8 +111,20 @@ function GameModel() {
     // --------------------------------------------------------------
     function reportEvent(info) {
         switch (info.type) {
+            case 'key-pressed':
+                MyGame.systems.collision().update(entities,reportEvent,info.key)
+                return gameReader.update(entities)
+            case 'pushed-word':
+                return gameReader.read(entities);
+            case 'undo':
+                return gameReader.undo(entities);
+            case 'won-game':
+                return gameReader.win(info.entity);
+            case 'lost-game':
+                return gameReader.lost(info.entity);
             case 'hit-something':
-        }
+
+        }   
     }
 
     // --------------------------------------------------------------
@@ -142,13 +155,11 @@ function GameModel() {
     //
     // --------------------------------------------------------------
     function update(elapsedTime) {
-        MyGame.input.Keyboard.update(elapsedTime,entities,objects);
-        MyGame.systems.collision().update(entities,reportEvent)
+        MyGame.input.Keyboard.update(entities,reportEvent);
         // MyGame.systems.movement.update(elapsedTime, entities);
         // MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
         MyGame.systems.animatedSprites.update(elapsedTime, entities);
     }
-
     initialize();
 
     let api = {

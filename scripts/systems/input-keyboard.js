@@ -9,7 +9,7 @@ MyGame.input.Keyboard = (function () {
     function keyRelease(e){
         keysDown[e.key] = e.timeStamp;
     }
-    function update(elapsedTime, entities, objects) {
+    function update(entities, reportEvent) {
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components['keyboard-controlled']) {
@@ -17,26 +17,32 @@ MyGame.input.Keyboard = (function () {
                 for (let key in input.keys) {
                     if (keysDown[key]) {
                         if(key == 'w'){
-                            console.log("up")
                             entity.components.position.y -= 1;
                         }
                         else if(key == 'a'){
-                            console.log("left")
                             entity.components.position.x -=  1;
                         }
                         else if(key == 's'){
-                            console.log("down")
                             entity.components.position.y += 1;
                         }
                         else if(key == 'd'){
-                            console.log("right")
                             entity.components.position.x += 1;
                         }
                         delete keysDown[key]
-                        MyGame.systems.gameReader().update(elapsedTime,objects)
+                        reportEvent({
+                            type: 'key-pressed',
+                            key: key
+                        })
                     }
                 }
             }
+        }
+        if(keysDown['z']){
+            reportEvent({
+                type: 'undo',
+                key: 'z',
+            })
+            delete keysDown['z']
         }
     }
 

@@ -12,6 +12,7 @@ MyGame.screens['game-play'] = (function(manager, graphics, input) {
     //------------------------------------------------------------------
     function initialize() {
         console.log('game initializing...');
+        
     }
 
     //------------------------------------------------------------------

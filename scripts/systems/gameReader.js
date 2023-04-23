@@ -3,10 +3,12 @@ MyGame.systems.gameReader = (function(){
     //Will also keep track of a stack for unlimited undo ? 
 
     let stack = [];
+    let firstUndo = true;
 
     function update(objects){
         let stackArray = objects.map(obj => JSON.parse(JSON.stringify(obj)))
         stack.push(stackArray)
+        firstUndo = true;
     }
     function gameSetup(objects){
         for(let id in objects){
@@ -67,7 +69,54 @@ MyGame.systems.gameReader = (function(){
         console.log("YOU LOST");
     }
     function undo(entities){
-        console.log('undo');
+        let updated = stack.pop()
+        if(firstUndo){
+            updated = stack.pop()
+            firstUndo = false;
+        }
+        for(let id in updated){
+            if(entities[id].id == updated[id].id){
+                entities[id].components.position = updated[id].components.position
+                entities[id].components.type = updated[id].components.type
+                if(entities[id].components.type['type'] != 'word'){
+                    entities[id].components.animatedSprites = updated[id].components.animatedSprites
+                }
+                //animated sprite imagesrc is messing it up. if Statement?
+                let imageSrc = ""
+                if(entities[id].components.type['type'] == 'baba'){
+                    imageSrc = MyGame.assets.bb
+                }
+                else if(entities[id].components.type['type'] == 'flag'){
+                    imageSrc = MyGame.assets.flag
+                }
+                else if(entities[id].components.type['type'] == 'floor'){
+                    imageSrc = MyGame.assets.floor
+                }
+                else if(entities[id].components.type['type'] == 'grass'){
+                    imageSrc = MyGame.assets.grass
+                }
+                else if(entities[id].components.type['type'] == 'hedge'){
+                    imageSrc = MyGame.assets.hedge
+                }
+                else if(entities[id].components.type['type'] == 'lava'){
+                    imageSrc = MyGame.assets.lava
+                }
+                else if(entities[id].components.type['type'] == 'rock'){
+                    imageSrc = MyGame.assets.rock
+                }
+                else if(entities[id].components.type['type'] == 'wall'){
+                    imageSrc = MyGame.assets.wall
+                }
+                else if(entities[id].components.type['type'] == 'water'){
+                    imageSrc = MyGame.assets.water
+                }
+                if(entities[id].components.type['type'] != 'word'){
+                    entities[id].components.animatedSprites['imageSrc'] = imageSrc
+                }
+                
+            }
+        }
+        read(entities);
     }
     function setComponents(first,last, objects){
         for(let id in objects){
@@ -150,9 +199,6 @@ MyGame.systems.gameReader = (function(){
         for(let id in objects){
             let entity = objects[id]
             if(entity.components.property >> 6 >= 1 && entity.components.property != WIN && entity.components.property != DEFEAT && entity.components.property != SINK && entity.components.property != YOU){
-                if(entity.components.type['type'] == 'flag'){
-                    console.log(entity)
-                }
                 continue
             }
             else{

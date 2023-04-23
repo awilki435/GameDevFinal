@@ -81,7 +81,6 @@ MyGame.systems.gameReader = (function(){
                 if(entities[id].components.type['type'] != 'word'){
                     entities[id].components.animatedSprites = updated[id].components.animatedSprites
                 }
-                //animated sprite imagesrc is messing it up. if Statement?
                 let imageSrc = ""
                 if(entities[id].components.type['type'] == 'baba'){
                     imageSrc = MyGame.assets.bb

@@ -59,6 +59,9 @@ MyGame.systems.collision = (function(){
                             }
                             
                             if(entityStop.components.type['type'] == 'word'){
+                                if(entityStop.components.type['wordType'] == 'win'){
+                                    MyGame.assets['win'].play();
+                                }
                                 reportEvent({
                                     type: 'pushed-word',
                                     entity: entityStop,

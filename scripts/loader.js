@@ -175,10 +175,10 @@ MyGame.loader = (function() {
             source: '/assets/images/word-you.png'
         }, {
             key: 'background',
-            source: '/assets/sounds/background_music.mp3'
+            source: '/assets/sounds/background.mp3'
         },{
             key: 'cleared',
-            source: '/assets/sounds/level_cleared.mp3'
+            source: '/assets/sounds/cleared.mp3'
         }, {
             key: 'movement',
             source: '/assets/sounds/movement.mp3'

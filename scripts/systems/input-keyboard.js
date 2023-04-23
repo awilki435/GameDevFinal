@@ -10,6 +10,7 @@ MyGame.input.Keyboard = (function () {
         keysDown[e.key] = e.timeStamp;
     }
     function update(entities, reportEvent) {
+        MyGame.assets['movement'].pause();
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components['keyboard-controlled']) {
@@ -18,15 +19,19 @@ MyGame.input.Keyboard = (function () {
                     if (keysDown[key]) {
                         if(key == 'w'){
                             entity.components.position.y -= 1;
+                            MyGame.assets['movement'].play();
                         }
                         else if(key == 'a'){
                             entity.components.position.x -=  1;
+                            MyGame.assets['movement'].play();
                         }
                         else if(key == 's'){
                             entity.components.position.y += 1;
+                            MyGame.assets['movement'].play();
                         }
                         else if(key == 'd'){
                             entity.components.position.x += 1;
+                            MyGame.assets['movement'].play();
                         }
                         delete keysDown[key]
                         reportEvent({

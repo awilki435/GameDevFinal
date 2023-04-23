@@ -18,7 +18,7 @@
 7. [10 pts] Technical - Particle system & effects
 8. ~~[5 pts] Game and menu interface/presentation~~
 9. ~~[5 pts] Game Design - General Gameplay~~
-10. [10 pts] Game Design - Sound & Music
+10. ~~[10 pts] Game Design - Sound & Music~~
 11. ~~[5 pts] Game Design - Dynamic Menu~~
     * Menu selection for level to play is dynamically specified based on the levels in the levels-all.bbiy file
 12. [10 pts] Game Design - "You" movement

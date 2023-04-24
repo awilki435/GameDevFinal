@@ -1,6 +1,8 @@
 // input controller with continuous and single action capabiliy
 MyGame.input.Keyboard = (function () {
     let keysDown = {};
+    let moved = false;
+    let deletedKey = ""
     
     function keyPress(e) {
         
@@ -9,14 +11,14 @@ MyGame.input.Keyboard = (function () {
     function keyRelease(e){
         keysDown[e.key] = e.timeStamp;
     }
-    function update(entities, reportEvent) {
+    function update(entities,reportEvent) {
         MyGame.assets['movement'].pause();
         for (let id in entities) {
             let entity = entities[id];
             if (entity.components['keyboard-controlled']) {
                 let input = entity.components['keyboard-controlled'];
                 for (let key in input.keys) {
-                    if (keysDown[key]) {
+                    if (keysDown[key] && moved == false) {
                         if(key == 'w'){
                             entity.components.position.y -= 1;
                             MyGame.assets['movement'].play();
@@ -33,7 +35,8 @@ MyGame.input.Keyboard = (function () {
                             entity.components.position.x += 1;
                             MyGame.assets['movement'].play();
                         }
-                        delete keysDown[key]
+                        moved = true
+                        deletedKey = key
                         reportEvent({
                             type: 'key-pressed',
                             key: key
@@ -41,7 +44,11 @@ MyGame.input.Keyboard = (function () {
                     }
                 }
             }
+            moved = false
         }
+        delete keysDown[deletedKey]
+        deletedKey = ""
+
         if(keysDown['z']){
             reportEvent({
                 type: 'undo',

@@ -63,10 +63,14 @@ MyGame.systems.gameReader = (function(){
     }
     function win(entity){
         console.log("YOU WIN!");
+        MyGame.assets['background'].pause()
+        MyGame.assets['cleared'].play()
+
     }
     function lost(entity){
         entity.removeComponent(MyGame.components.KeyboardControlled())
         console.log("YOU LOST");
+        MyGame.assets['background'].pause()
     }
     function undo(entities){
         let updated = stack.pop()

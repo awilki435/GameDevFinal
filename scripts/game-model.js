@@ -48,7 +48,9 @@ function GameModel() {
                 
             }
         }
-        MyGame.systems.gameReader().gameSetup(entities);
+        gameReader.gameSetup(entities);
+        gameReader.update(entities)
+        
     }
  
     function objMaker(EntityId, x,y){
@@ -122,6 +124,9 @@ function GameModel() {
                 return gameReader.win(info.entity);
             case 'lost-game':
                 return gameReader.lost(info.entity);
+            case 'reset':
+                gameReader.reset(entities);
+                return gameReader.update(entities);
             case 'hit-something':
 
         }   

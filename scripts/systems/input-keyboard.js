@@ -56,6 +56,13 @@ MyGame.input.Keyboard = (function () {
             })
             delete keysDown['z']
         }
+        if(keysDown['r']){
+            reportEvent({
+                type: 'reset',
+                key: 'r',
+            })
+            delete keysDown['r']
+        }
     }
 
     window.addEventListener('keydown', keyPress);

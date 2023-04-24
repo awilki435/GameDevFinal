@@ -3,12 +3,10 @@ MyGame.systems.gameReader = (function(){
     //Will also keep track of a stack for unlimited undo ? 
 
     let stack = [];
-    let firstUndo = true;
 
     function update(objects){
         let stackArray = objects.map(obj => JSON.parse(JSON.stringify(obj)))
         stack.push(stackArray)
-        firstUndo = true;
     }
     function gameSetup(objects){
         for(let id in objects){
@@ -23,8 +21,6 @@ MyGame.systems.gameReader = (function(){
             entity.addComponent(MyGame.components.Property(property))
             entity.components.property = property
         }
-        let stackArray = objects.map(obj => JSON.parse(JSON.stringify(obj)))
-        stack.push(stackArray)
         read(objects)
     }
     function read(objects){
@@ -72,12 +68,16 @@ MyGame.systems.gameReader = (function(){
         console.log("YOU LOST");
         MyGame.assets['background'].pause()
     }
+    function reset(entities){
+        let current = ""
+        while(stack != ""){
+            current = undo(entities)
+        }
+        stack.push(current)
+        
+    }
     function undo(entities){
         let updated = stack.pop()
-        if(firstUndo){
-            updated = stack.pop()
-            firstUndo = false;
-        }
         for(let id in updated){
             if(entities[id].id == updated[id].id){
                 entities[id].components.position = updated[id].components.position
@@ -217,6 +217,7 @@ MyGame.systems.gameReader = (function(){
         undo: undo,
         lost: lost,
         win: win,
+        reset: reset,
     };
 
     return api;

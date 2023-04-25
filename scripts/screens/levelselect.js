@@ -9,7 +9,7 @@ MyGame.screens['level-select'] = (function(game) {
 
         let levelData = MyGame.assets['level-all'].split('\n');
         // console.log(levelData);
-        console.log(MyGame.assets);
+        // console.log(MyGame.assets);
 
         let levels = [];
 

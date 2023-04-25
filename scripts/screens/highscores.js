@@ -17,6 +17,7 @@ MyGame.screens['custom-controls'] = (function(game) {
         const leftButton = document.getElementById('id-custom-controls-left');
         const undoButton = document.getElementById('id-custom-controls-undo');
         const resetButton = document.getElementById('id-custom-controls-map-reset');
+        
         function setButtonText(){
             upButton.textContent = `Move Up: ${controls.up}`;
             downButton.textContent = `Move Down: ${controls.down}`;
@@ -28,8 +29,8 @@ MyGame.screens['custom-controls'] = (function(game) {
         
         // Get and set lables
         setButtonText();
-        console.log(localStorage.controls);
-        console.log(controls);
+        // console.log(localStorage.controls);
+        // console.log(controls);
 
         // document.getElementById('id-custom-controls-up').textContent = localStorage['controls']; 
         let commandId = null;
@@ -124,7 +125,7 @@ MyGame.screens['custom-controls'] = (function(game) {
             'click',
             function() { game.showScreen('main-menu');
             localStorage['controls'] = JSON.stringify(controls);
-            
+
         });
 
         document.getElementById('id-custom-controls-reset').addEventListener(

@@ -58,6 +58,15 @@ MyGame.graphics = (function() {
         // console.log("Draw Sprite: Image Drawn")
     }
 
+    // Draw a particle to the canvas
+    function drawParticle(particle) {
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+        ctx.fillStyle = particle.color;
+        ctx.globalAlpha = particle.alpha; // set the particle's opacity
+        ctx.fill();
+    }
+
     // neds obj : x, y, size color 
     function drawRectangle(spec){
         // console.log("drawRect");
@@ -99,7 +108,8 @@ MyGame.graphics = (function() {
         drawRectangle:drawRectangle,
         drawTexture: drawTexture,
         drawText: drawText,
-        drawSprite: drawSprite
+        drawSprite: drawSprite,
+        drawParticle:drawParticle
     };
 
     return api;

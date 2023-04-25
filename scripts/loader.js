@@ -50,7 +50,12 @@ MyGame.loader = (function() {
             scripts: ['Systems/animatedSprites'],
             message: 'Animated Sprites Loaded',
             onComplete: null
-        }, {
+        }, 
+        {
+            scripts: ['Systems/particleSystem'],
+            message: 'Particals has loaded',
+            onComplete: null
+        },{
             scripts: ['Systems/gameReader'],
             message: 'Reader has loaded',
             onComplete: null

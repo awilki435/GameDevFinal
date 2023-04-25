@@ -164,6 +164,10 @@ function GameModel() {
         // MyGame.systems.movement.update(elapsedTime, entities);
         // MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
         MyGame.systems.animatedSprites.update(elapsedTime, entities);
+        
+        if (MyGame.systems.particleSystem.particleSystem) {
+            MyGame.systems.particleSystem.update();
+        }
         MyGame.assets['background'].play()
     }
     initialize();

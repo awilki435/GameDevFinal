@@ -8,9 +8,9 @@ MyGame.screens['main-menu'] = (function(game) {
             'click',
             function() { game.showScreen('level-select'); });
         
-        document.getElementById('id-high-scores').addEventListener(
+        document.getElementById('id-custom-controls').addEventListener(
             'click',
-            function() { game.showScreen('high-scores'); });
+            function() { game.showScreen('custom-controls'); });
         
     
         

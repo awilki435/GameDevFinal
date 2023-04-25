@@ -2,6 +2,11 @@ MyGame.screens['level-select'] = (function(game) {
     'use strict';
     
     function initialize() {
+        document.getElementById('id-level-select-back').addEventListener(
+            'click',
+            function() { game.showScreen('main-menu'); 
+        });
+
         let levelData = MyGame.assets['level-all'].split('\n');
         // console.log(levelData);
         console.log(MyGame.assets);

@@ -3,7 +3,6 @@ MyGame.input.Keyboard = (function () {
     let keysDown = {};
     let moved = false;
     let deletedKey = ""
-    
     function keyPress(e) {
         
     }
@@ -19,19 +18,20 @@ MyGame.input.Keyboard = (function () {
                 let input = entity.components['keyboard-controlled'];
                 for (let key in input.keys) {
                     if (keysDown[key] && moved == false) {
-                        if(key == 'w'){
+                        // console.log(MyGame.screens['custom-controls'].controls);
+                        if(key == MyGame.screens['custom-controls'].controls.up){
                             entity.components.position.y -= 1;
                             MyGame.assets['movement'].play();
                         }
-                        else if(key == 'a'){
+                        else if(key == MyGame.screens['custom-controls'].controls.left){
                             entity.components.position.x -=  1;
                             MyGame.assets['movement'].play();
                         }
-                        else if(key == 's'){
+                        else if(key == MyGame.screens['custom-controls'].controls.down){
                             entity.components.position.y += 1;
                             MyGame.assets['movement'].play();
                         }
-                        else if(key == 'd'){
+                        else if(key == MyGame.screens['custom-controls'].controls.right){
                             entity.components.position.x += 1;
                             MyGame.assets['movement'].play();
                         }
@@ -48,20 +48,25 @@ MyGame.input.Keyboard = (function () {
         }
         delete keysDown[deletedKey]
         deletedKey = ""
-
-        if(keysDown['z']){
+        let undoKey = MyGame.screens['custom-controls'].controls.undo;
+        let resetKey = MyGame.screens['custom-controls'].controls.reset;
+        if(keysDown[undoKey]){
             reportEvent({
                 type: 'undo',
-                key: 'z',
+                key: undoKey,
             })
-            delete keysDown['z']
+            delete keysDown[undoKey];
         }
-        if(keysDown['r']){
+        if(keysDown[resetKey]){
             reportEvent({
                 type: 'reset',
-                key: 'r',
+                key: resetKey,
             })
-            delete keysDown['r']
+            delete keysDown[resetKey];
+        }
+        if (keysDown['Escape']) {
+            MyGame.game.showScreen('level-select')
+            delete keysDown['Escape'];
         }
     }
 

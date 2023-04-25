@@ -35,7 +35,7 @@ MyGame.screens['custom-controls'] = (function(game) {
         let commandId = null;
         document.addEventListener('keydown', (event) => {
             let firstKeyStroke = event.key;
-            console.log(`The first key stroke was: ${firstKeyStroke}`);
+            // console.log(`The first key stroke was: ${firstKeyStroke}`);
             switch (commandId) {
                 case 'up':
                     controls.up = firstKeyStroke;
@@ -124,6 +124,7 @@ MyGame.screens['custom-controls'] = (function(game) {
             'click',
             function() { game.showScreen('main-menu');
             localStorage['controls'] = JSON.stringify(controls);
+            
         });
 
         document.getElementById('id-custom-controls-reset').addEventListener(
@@ -166,6 +167,7 @@ MyGame.screens['custom-controls'] = (function(game) {
     }
     
     return {
+        get controls(){ return controls;},
         initialize : initialize,
         run : run
     };

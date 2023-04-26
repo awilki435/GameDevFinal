@@ -60,11 +60,11 @@ MyGame.graphics = (function() {
 
     // Draw a particle to the canvas
     function drawParticle(particle) {
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
-        ctx.fillStyle = particle.color;
-        ctx.globalAlpha = particle.alpha; // set the particle's opacity
-        ctx.fill();
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+        context.fillStyle = particle.color;
+        // context.globalAlpha = particle.alpha; // set the particle's opacity
+        context.fill();
     }
 
     // neds obj : x, y, size color 

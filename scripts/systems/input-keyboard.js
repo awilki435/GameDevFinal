@@ -66,6 +66,7 @@ MyGame.input.Keyboard = (function () {
         }
         if (keysDown['Escape']) {
             MyGame.game.showScreen('level-select')
+            MyGame.assets['background'].pause()
             delete keysDown['Escape'];
         }
     }

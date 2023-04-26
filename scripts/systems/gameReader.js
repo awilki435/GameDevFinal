@@ -58,26 +58,29 @@ MyGame.systems.gameReader = (function(){
         
     }
     function win(entity){
+        entity.removeComponent(MyGame.components.KeyboardControlled);
+        MyGame.systems.particleSystem.createParticleSystem(500,500);
         console.log("YOU WIN!");
-        MyGame.assets['background'].pause()
-        MyGame.assets['cleared'].play()
+        MyGame.assets['background'].pause();
+        MyGame.assets['cleared'].play();
 
     }
     function lost(entity){
-        entity.removeComponent(MyGame.components.KeyboardControlled())
+        entity.removeComponent(MyGame.components.KeyboardControlled());
         console.log("YOU LOST");
-        MyGame.assets['background'].pause()
+        MyGame.assets['background'].pause();
+        MyGame.assets['defeat'].play();
     }
     function reset(entities){
         let current = ""
         while(stack != ""){
-            current = undo(entities)
+            current = undo(entities);
         }
         stack.push(current)
         
     }
     function undo(entities){
-        let updated = stack.pop()
+        let updated = stack.pop();
         for(let id in updated){
             if(entities[id].id == updated[id].id){
                 entities[id].components.position = updated[id].components.position

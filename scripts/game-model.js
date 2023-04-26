@@ -121,7 +121,7 @@ function GameModel() {
             case 'undo':
                 return gameReader.undo(entities);
             case 'won-game':
-                return gameReader.win(info.entity);
+                return gameReader.win( info.entity);
             case 'lost-game':
                 return gameReader.lost(info.entity);
             case 'reset':
@@ -150,7 +150,7 @@ function GameModel() {
     //
     // --------------------------------------------------------------
     function initialize() {
-        
+        musicStart = true;
     }
 
     // --------------------------------------------------------------
@@ -159,16 +159,22 @@ function GameModel() {
     // model to perform an update.
     //
     // --------------------------------------------------------------
+    let musicStart;
     function update(elapsedTime) {
         MyGame.input.Keyboard.update(entities,reportEvent);
         // MyGame.systems.movement.update(elapsedTime, entities);
         // MyGame.systems.collision.update(elapsedTime, entities, reportEvent);
         MyGame.systems.animatedSprites.update(elapsedTime, entities);
-        
-        if (MyGame.systems.particleSystem.particleSystem) {
+
+        if (MyGame.systems.particleSystem.active) {
+            // console.log("particals active");
             MyGame.systems.particleSystem.update();
         }
-        MyGame.assets['background'].play()
+        if(musicStart){
+            MyGame.assets['background'].play()
+            musicStart =false;
+        }
+        
     }
     initialize();
 

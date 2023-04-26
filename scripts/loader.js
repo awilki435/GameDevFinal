@@ -181,6 +181,10 @@ MyGame.loader = (function() {
         }, {
             key: 'background',
             source: '/assets/sounds/background.mp3'
+        },
+        {
+            key: 'defeat',
+            source: '/assets/sounds/sfx-defeat6.mp3'
         },{
             key: 'cleared',
             source: '/assets/sounds/cleared.mp3'

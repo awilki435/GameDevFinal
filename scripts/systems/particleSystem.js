@@ -1,7 +1,8 @@
 
 MyGame.systems.particleSystem = (function() {
 
-    var particleSystem = null;
+    var MyparticleSystem = null;
+    var active = false;
 
     // Define the particle system
     function ParticleSystem(x, y, numParticles, lifetime) {
@@ -16,10 +17,11 @@ MyGame.systems.particleSystem = (function() {
 
         // Update the particles and draw them to the canvas
         this.update = function() {
+            console.log('particalSystem: upddate');
             for (var i = 0; i < this.particles.length; i++) {
                 var particle = this.particles[i];
                 particle.update();
-
+                
                 MyGame.graphics.drawParticle(particle);
             }
 
@@ -27,7 +29,9 @@ MyGame.systems.particleSystem = (function() {
 
             if (this.lifetime <= 0) {
                 this.particles = [];
-                particleSystem = null;
+                active = false;
+                MyparticleSystem = null;
+                console.log('End of particles');
             }
         }
     }
@@ -46,6 +50,7 @@ MyGame.systems.particleSystem = (function() {
 
         // Update the particle's position, velocity, and opacity with gravity and fading
         this.update = function() {
+
             this.speedY += this.gravity;
             this.x += this.speedX;
             this.y += this.speedY;
@@ -58,14 +63,22 @@ MyGame.systems.particleSystem = (function() {
 
     // Create a new particle system at the given x and y position
     function createParticleSystem(x, y) {
-        var particleSystem = new ParticleSystem(x, y, 50, 30);
-        return particleSystem;
+        console.log('partical system created');
+        active = true
+        MyparticleSystem = new ParticleSystem(x, y, 50, 30);
+        console.log(MyparticleSystem);
+    }
+    
+    function update(){
+        // console.log('Psystem: update');
+        MyparticleSystem.update();
     }
 
     // Return the canvas and particle system to the global scope
     let api = {
         createParticleSystem: createParticleSystem,
-        get particleSystem(){ return particleSystem}
+        update:update,
+        get active(){return active;}
 
     };
     return api;
